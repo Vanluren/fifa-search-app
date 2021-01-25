@@ -1,18 +1,22 @@
-import React, { InputHTMLAttributes, ReactElement } from 'react'
+import React, { InputHTMLAttributes, ReactElement } from "react";
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
-  inputSize: 'lg' | 'md'
+  inputSize: "lg" | "md";
 }
-const TextInput = ({ inputSize = 'lg', className, ...rest }: Props): ReactElement => {
-  if (inputSize === 'lg') {
+const TextInput = ({
+  inputSize = "lg",
+  className,
+  ...rest
+}: Props): ReactElement => {
+  if (inputSize === "lg") {
     return (
       <input
-        className={`h-20 shadow-sm rounded-sm px-4 py-2 ing-indigo-100 ${className}`}
+        className={`h-16 shadow-sm rounded px-4 py-2 ing-indigo-100 ${className}`}
         {...rest}
       />
-    )
+    );
   }
-  return <input {...rest} />
-}
+  return <input {...rest} />;
+};
 
-export default TextInput
+export default TextInput;
