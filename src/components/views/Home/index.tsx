@@ -4,6 +4,7 @@ import Navigation from "components/molecules/Navigation";
 import SearchBar from "components/molecules/SearchBar";
 import LoadingSpinner from "components/atoms/LoadingSpinner";
 import PlayerCard from "components/molecules/PlayerCard";
+import ErrorCard from "components/organisms/ErrorCard";
 
 const Home = () => {
   const { loading, data, error } = useContext(DataContext);
@@ -22,10 +23,14 @@ const Home = () => {
         <SearchBar />
       </div>
       {loading && <LoadingSpinner />}
-
       {!loading && data?.length && (
         <div className="h-full w-full grid grid-cols-3 gap-4 my-8">
           {renderPlayers()}
+        </div>
+      )}
+      {error && (
+        <div className="h-full w-4/6 my-8">
+          <ErrorCard />
         </div>
       )}
     </div>

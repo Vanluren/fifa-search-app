@@ -21,16 +21,16 @@ const SearchBar = () => {
       : "Search for players by their name, club or nationality";
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    try {
-      e.preventDefault();
-      dispatch(queryAction());
-      if (currentSearch === "team") {
-        return setTeam(query).then((res) => dispatch(querySuccess(res)));
-      }
-      return queryForPlayers(query).then((res) => dispatch(querySuccess(res)));
-    } catch (e) {
-      dispatch(queryError(e));
+    e.preventDefault();
+    dispatch(queryAction());
+    if (currentSearch === "team") {
+      return setTeam(query)
+        .then((res) => dispatch(querySuccess(res)))
+        .catch((e) => dispatch(queryError(e)));
     }
+    return queryForPlayers(query)
+      .then((res) => dispatch(querySuccess(res)))
+      .catch((e) => dispatch(queryError(e)));
   };
 
   /**
