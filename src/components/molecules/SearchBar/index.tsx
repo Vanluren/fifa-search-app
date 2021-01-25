@@ -1,8 +1,15 @@
-import React, { useContext, useMemo, ChangeEvent, FormEvent } from "react";
-import { DataContext, queryAction, queryError, setQuery } from "context/Data";
+import React, { useContext, ChangeEvent, FormEvent } from "react";
+import {
+  DataContext,
+  queryAction,
+  queryError,
+  querySuccess,
+  setQuery,
+} from "context/Data";
 import TextInput from "components/atoms/TextInput";
 import Button from "components/atoms/Button";
 import { queryForPlayers, setTeam } from "services/api";
+import { MOCK_PLAYERS } from "utils/MOCK_DATA";
 
 const SearchBar = () => {
   const { currentSearch, dispatch, query } = useContext(DataContext);
@@ -21,7 +28,9 @@ const SearchBar = () => {
       if (currentSearch === "team") {
         return setTeam(query);
       }
-      return queryForPlayers(query).then((res) => console.log(res));
+      return queryForPlayers(query).then((res) => {
+        return dispatch(querySuccess(MOCK_PLAYERS));
+      });
     } catch (e) {
       dispatch(queryError(e));
     }

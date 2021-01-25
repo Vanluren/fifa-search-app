@@ -43,7 +43,7 @@ const reducer = (state: State, action: Action): State => {
         ...state,
         loading: false,
         data: action.payload,
-        submitting: true,
+        submitting: false,
         error: null,
       };
     case SET_QUERY:

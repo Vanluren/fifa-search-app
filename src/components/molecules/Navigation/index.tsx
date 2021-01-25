@@ -18,6 +18,7 @@ const Navigation = () => {
     <div className="flex flex-row align-start divide-x-2 my-2">
       {VIEWS.map(({ path, value }) => (
         <p
+          key={path}
           className={`text-xl cursor-pointer px-2 ${
             path === currentSearch
               ? "text-indigo-900 font-semibold"

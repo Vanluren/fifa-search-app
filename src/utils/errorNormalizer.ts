@@ -1,19 +1,21 @@
-import { AxiosError } from 'axios'
-import { Error as CustomError } from 'types'
+import { AxiosError } from "axios";
+import { Error as CustomError } from "types";
 
 const isAxiosError = (error: unknown): error is AxiosError => {
-  return (error as AxiosError).isAxiosError !== undefined
-}
+  return (error as AxiosError).isAxiosError !== undefined;
+};
 
-export default (error: AxiosError | CustomError | null): CustomError => {
+const normalizer = (error: AxiosError | CustomError | null): CustomError => {
   if (!error) {
-    return { message: 'Unknown error' }
+    return { message: "Unknown error" };
   }
   if (isAxiosError(error)) {
     return {
       message: error.response?.data,
       status: error.response?.status,
-    }
+    };
   }
-  return { message: error.message }
-}
+  return { message: error.message };
+};
+
+export default normalizer;

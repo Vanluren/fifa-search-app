@@ -1,4 +1,5 @@
 export * from "./Player";
+export * from "./Position";
 export * from "./Team";
 export * from "./SearchView";
 export * from "./Error";
