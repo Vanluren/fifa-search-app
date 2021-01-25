@@ -9,7 +9,6 @@ import {
 import TextInput from "components/atoms/TextInput";
 import Button from "components/atoms/Button";
 import { queryForPlayers, setTeam } from "services/api";
-import { MOCK_PLAYERS } from "utils/MOCK_DATA";
 
 const SearchBar = () => {
   const { currentSearch, dispatch, query } = useContext(DataContext);
@@ -26,11 +25,9 @@ const SearchBar = () => {
       e.preventDefault();
       dispatch(queryAction());
       if (currentSearch === "team") {
-        return setTeam(query);
+        return setTeam(query).then((res) => dispatch(querySuccess(res)));
       }
-      return queryForPlayers(query).then((res) => {
-        return dispatch(querySuccess(MOCK_PLAYERS));
-      });
+      return queryForPlayers(query).then((res) => dispatch(querySuccess(res)));
     } catch (e) {
       dispatch(queryError(e));
     }

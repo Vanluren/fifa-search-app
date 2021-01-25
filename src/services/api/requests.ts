@@ -3,7 +3,7 @@ import { Team } from "types";
 import Api from "./index";
 import { URL_STRINGS } from "./url-constants";
 
-const queryForPlayers = (query: string): Promise<Player[] | null> => {
+const queryForPlayers = (query: string): Promise<Player[]> => {
   return Api.get(URL_STRINGS.PLAYERS, {
     params: {
       q: query,

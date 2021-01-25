@@ -1,6 +1,6 @@
 import { createAction } from "utils/createAction";
 import errorNormalizer from "utils/errorNormalizer";
-import { Action, Player, Error, SearchView } from "types";
+import { Action, Player, Error, SearchView, Team } from "types";
 import {
   QUERY,
   QUERY_SUCCESS,
@@ -12,7 +12,7 @@ import {
 } from "./action-types";
 
 const queryAction = (): Action => createAction(QUERY);
-const querySuccess = (data: Player[]): Action =>
+const querySuccess = (data: Player[] | Team): Action =>
   createAction(QUERY_SUCCESS, data);
 const queryError = (error: Error): Action =>
   createAction(QUERY_FAILED, errorNormalizer(error));
