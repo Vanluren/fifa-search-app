@@ -19,6 +19,7 @@ const reducer = (state: State, action: Action): State => {
         query: "",
         error: null,
         submitting: false,
+        data: null,
       };
     }
     case SET_LOADING:

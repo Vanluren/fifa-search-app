@@ -7,7 +7,7 @@ type Props = {
 const Card = ({ noPadding = false, children }: Props): ReactElement => {
   return (
     <div
-      className={`w-full h-full bg-white rounded shadow-sm ${
+      className={`w-full bg-white rounded shadow-sm ${
         noPadding ? "" : "px-4 py-6"
       }`}
     >

@@ -12,10 +12,10 @@ const Home = () => {
     data?.map((p) => <PlayerCard key={p.id} {...p} />);
 
   return (
-    <div className="container h-screen mx-auto flex flex-col justify-center items-center">
+    <div className="container m-auto flex flex-col justify-center items-center">
       <div
         className={`w-full lg:w-4/6 flex flex-col ${
-          data || error ? "justify-start mt-8" : "justify-center"
+          data || error ? "justify-start mt-8" : "justify-center h-screen"
         }`}
       >
         <Navigation />
@@ -24,7 +24,7 @@ const Home = () => {
       {loading && <LoadingSpinner />}
 
       {!loading && data?.length && (
-        <div className="h-full xl:w-5/6 flex flex-row flex-wrap my-8">
+        <div className="h-full w-full grid grid-cols-3 gap-4 my-8">
           {renderPlayers()}
         </div>
       )}

@@ -4,18 +4,31 @@ import Mugshot from "components/atoms/Mugshot";
 import React from "react";
 import { Player } from "types";
 
-const PlayerCard = ({ name, image, position, value, club }: Player) => {
+const PlayerCard = ({
+  name,
+  age,
+  image,
+  position,
+  value,
+  club,
+  score,
+}: Player) => {
   return (
-    <div className="w-2/6 h-56 mx-4">
+    <div className="my-4">
       <Card>
         <div className="flex flex-row">
           <Mugshot imageSrc={image} name={name} />
           <div className="flex flex-col ml-2">
             <Header size="sm">{club}</Header>
             <Header>{name}</Header>
+            <span className="text text-gray-400">{age} Years</span>
           </div>
         </div>
         <div className="flex flex-col px-2 py-6 w-full">
+          <div className="flex flex-row justify-between w-full">
+            <Header size="sm">Score</Header>
+            <Header size="md">{score}</Header>
+          </div>
           <div className="flex flex-row justify-between w-full">
             <Header size="sm">Position</Header>
             <Header size="md">{position}</Header>
