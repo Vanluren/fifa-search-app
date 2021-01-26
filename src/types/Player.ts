@@ -8,5 +8,5 @@ export type Player = {
   nationality: string;
   position: Position;
   value: string;
-  score: number;
+  overall: number;
 };

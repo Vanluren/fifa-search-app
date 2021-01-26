@@ -10,7 +10,7 @@ const MOCK_PLAYERS: Player[] = [
     nationality: "Spain",
     value: "€51M",
     position: "RCB",
-    score: 91,
+    overall: 91,
   },
   {
     id: 2202126,
@@ -21,7 +21,7 @@ const MOCK_PLAYERS: Player[] = [
     nationality: "UK",
     position: "ST",
     value: "€83.5M",
-    score: 89,
+    overall: 89,
   },
 ];
 
